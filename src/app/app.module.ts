@@ -50,7 +50,7 @@ import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { APIService } from './api.service'
 
 
 
@@ -63,7 +63,7 @@ import { RegisterComponent } from './register/register.component';
     RestoDetailsComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
     // AdminLoginComponent,
     // AdminDashboardComponent
     // NgForm
@@ -114,7 +114,7 @@ import { RegisterComponent } from './register/register.component';
   entryComponents: [LoginModelComponent,FeedbackModelComponent],
   exports: [
   ],
-  providers: [UserService],
+  providers: [UserService, APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

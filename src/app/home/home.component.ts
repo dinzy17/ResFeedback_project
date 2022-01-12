@@ -15,10 +15,14 @@ interface Food {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
   public searchResults :boolean = false;
   public isShow:boolean = false;
   topPosToStartShowing = 100;
+  userId: any = localStorage.getItem("userId")
+  userDetails: any = localStorage.getItem("userDetails")
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginModelComponent, {
       width: '300px'
@@ -28,6 +32,7 @@ export class HomeComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
   openDialogFeedback(): void {
     const dialogRef = this.dialog.open(FeedbackModelComponent, {
       width: '300px'
@@ -37,6 +42,7 @@ export class HomeComponent implements OnInit {
       console.log('The dialog was closed');
     });
   }
+
   customOptions: OwlOptions = {
     loop: true,
     autoplayHoverPause : true,
@@ -72,7 +78,11 @@ export class HomeComponent implements OnInit {
     {value: 'Thai-1', viewValue: 'Thai'},
     {value: 'British-2', viewValue: 'British'}
   ];
+
   ngOnInit(): void {
+    if(this.userDetails && typeof(this.userDetails) == "string") {
+      this.userDetails = JSON.parse(this.userDetails)
+    }
   }
 
 

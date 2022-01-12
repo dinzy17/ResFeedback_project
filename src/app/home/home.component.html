@@ -2,12 +2,17 @@
         <img class="restoImage" routerLink="/" src="../../../assets/images/Free_Sample_By_Wix (1).jpg" alt="">
     
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/login">
-        <span>Login</span>
-    </button>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/register">
-        <span>Register</span>
-    </button>
+    <div *ngIf="userDetails">
+        {{userDetails.fullName}}
+    </div>
+    <div *ngIf="!userDetails">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/login">
+            <span>Login</span>
+        </button>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/register">
+            <span>Register</span>
+        </button>
+    </div>
 </mat-toolbar>
 <div class="" fxLayout="row wrap" fxLayoutAlign="center center">
     <div class="" fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="100" fxFlex.lg="1200px"  fxFlex.xl="1200px">
